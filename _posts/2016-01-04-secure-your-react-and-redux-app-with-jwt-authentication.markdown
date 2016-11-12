@@ -933,7 +933,7 @@ With these actions in place, we can now add them to our reducer to handle authen
 
 <Login
   errorMessage={errorMessage}
-  onLoginClick={ creds => dispatch(login(creds)) }
+  onLoginClick={ creds => dispatch(login()) }
 />
 
 ...
@@ -948,7 +948,8 @@ import { loginUser, fetchQuote, doAuthentication, fetchSecretQuote } from '../ac
 // add a constructor
 constructor(props) {
     super(props)
-    this.props.doAuthentication()
+    const { dispatch } = props
+    dispatch(doAuthentication())
   }
 ```
 
